@@ -55,16 +55,16 @@ void Scene_Starship::OnCreate()
 
 	while (Time <= 60 / DeltaTime )
 	{
-		if (Time < 31.0f)
+		if (Time*DeltaTime < 31.0f)
 		{
 			Starship->AddForce(TurbineForce);
 		}
-		else if (Time < 51.0f)
+		else if (Time*DeltaTime < 51.0f)
 		{
 			Starship->AddTorque(TurbineTorque);
-			RotationMatrix.SetToRotationMatrix(Z, Starship->GetAngle(), true);
+			RotationMatrix.SetToRotationMatrix(Y, Starship->GetAngle(), true);
 			TurbineForce = RotationMatrix * TurbineForce;
-			Starship->AddForce(TurbineForce);
+			Starship->AddForce(TurbineForce/2);
 		}
 
 		ShipAcceleration = Starship->GetAcceleration();
