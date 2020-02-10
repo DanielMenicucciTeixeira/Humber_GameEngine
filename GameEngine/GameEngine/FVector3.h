@@ -28,28 +28,28 @@ public:
 
 	///Operators
 
-	FVector3 operator+ (FVector3 Vector);//Overload of the "+" operator, makes a vector plus vector addition.
+	virtual FVector3 operator+ (FVector3 Vector);//Overload of the "+" operator, makes a vector plus vector addition.
 
-	FVector3 operator- (FVector3 Vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
+	virtual FVector3 operator- (FVector3 Vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
 
-	FVector3 operator* (float Multiplier);//Overload of the "*" operator, makes a vector times scalar multiplication.
+	virtual FVector3 operator* (float Multiplier);//Overload of the "*" operator, makes a vector times scalar multiplication.
 
-	FVector3 operator/ (float Divisor);//Overload of the "/" operator, makes a vector divided by scalar division.
+	virtual FVector3 operator/ (float Divisor);//Overload of the "/" operator, makes a vector divided by scalar division.
 
-	float operator* (FVector3 Vector);//Overload of the "*" operator, makes a vector times vector dot product.
+	virtual float operator* (FVector3 Vector);//Overload of the "*" operator, makes a vector times vector dot product.
 
-	void operator= (FVector3 Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
+	virtual void operator= (FVector3 Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
-	void operator= (FVector3 * Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
+	virtual void operator= (FVector3 * Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
-	void operator+= (FVector3 Vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
+	virtual void operator+= (FVector3 Vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
 
-	void operator-= (FVector3 Vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
+	virtual void operator-= (FVector3 Vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
 
 	///Functions
 
 	//Returns the magnitude of the Vector (or Vector's scalar lenght)
-	float Length();
+	virtual float Length();
 
 	//Returns the angle between this vector and another given vector in degrees.
 	float GetAngle(FVector3 Vector);
@@ -58,13 +58,13 @@ public:
 	float GetRadAngle(FVector3 Vector);
 
 	//Returns the cross product between this vector and another given vector.
-	FVector3 CrossProduct(FVector3 Vector);
+	virtual FVector3 CrossProduct(FVector3 Vector);
 
 	//Gets the normalized form of this Vector
-	FVector3 GetNormal();
+	virtual FVector3 GetNormal();
 
 	//Divides the vector by its Magnitude to get the normalized unit vector.
-	void Normalize();
+	virtual void Normalize();
 
 	//Rotates the vector by disered amount in degrees in the Z axis
 	void RotateZ(float Degrees);
@@ -73,6 +73,6 @@ public:
 	void RotateZRad(float Degrees);
 
 	//Utility to populate vector
-	inline void Load(float InX, float InY, float InZ);
+	virtual inline void Load(float InX, float InY, float InZ);
 };
 #endif
